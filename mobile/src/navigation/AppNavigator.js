@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useAuth } from '../contexts/AuthContext';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // Screens
@@ -14,6 +14,7 @@ import FriendsListScreen from '../screens/FriendsListScreen';
 import AddFriendScreen from '../screens/AddFriendScreen';
 import ChatListScreen from '../screens/ChatListScreen';
 import ChatRoomScreen from '../screens/ChatRoomScreen';
+import CameraScreen from '../screens/CameraScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -64,6 +65,14 @@ const ChatStack = () => (
       name="ChatRoom"
       component={ChatRoomScreen}
     />
+    <Stack.Screen
+      name="Camera"
+      component={CameraScreen}
+      options={{
+        headerShown: false,
+        presentation: 'fullScreenModal',
+      }}
+    />
   </Stack.Navigator>
 );
 
@@ -78,6 +87,8 @@ const MainTabs = () => (
           iconName = focused ? 'account-group' : 'account-group-outline';
         } else if (route.name === 'ChatsTab') {
           iconName = focused ? 'message' : 'message-outline';
+        } else if (route.name === 'CameraTab') {
+          iconName = focused ? 'camera' : 'camera-outline';
         } else if (route.name === 'ProfileTab') {
           iconName = focused ? 'account' : 'account-outline';
         }
@@ -97,6 +108,25 @@ const MainTabs = () => (
       name="ChatsTab"
       component={ChatStack}
       options={{ title: 'Chats' }}
+    />
+    <Tab.Screen
+      name="CameraTab"
+      component={CameraScreen}
+      options={{
+        title: 'Camera',
+        tabBarButton: (props) => (
+          <TouchableOpacity {...props} />
+        ),
+      }}
+      listeners={({ navigation }) => ({
+        tabPress: (e) => {
+          e.preventDefault();
+          navigation.navigate('ChatsTab', {
+            screen: 'Camera',
+            params: {},
+          });
+        },
+      })}
     />
     <Tab.Screen
       name="ProfileTab"

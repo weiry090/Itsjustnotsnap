@@ -197,6 +197,24 @@ const ChatRoomScreen = ({ route, navigation }) => {
     }
   };
 
+  const handleCameraPicker = () => {
+    setMenuVisible(false);
+    navigation.navigate('Camera', {
+      onCapture: async (uri, type, filter) => {
+        try {
+          const file = {
+            uri,
+            type: type === 'photo' ? 'image/jpeg' : 'video/mp4',
+            name: type === 'photo' ? 'photo.jpg' : 'video.mp4',
+          };
+          await uploadAndSendMedia(file, type === 'photo' ? 'image' : 'video');
+        } catch (err) {
+          setError('Failed to upload media from camera');
+        }
+      },
+    });
+  };
+
   const handleVideoPicker = async () => {
     setMenuVisible(false);
     
@@ -382,6 +400,11 @@ const ChatRoomScreen = ({ route, navigation }) => {
                 />
               }
             >
+              <Menu.Item
+                onPress={handleCameraPicker}
+                title="Camera"
+                leadingIcon="camera"
+              />
               <Menu.Item
                 onPress={handleImagePicker}
                 title="Photo"
