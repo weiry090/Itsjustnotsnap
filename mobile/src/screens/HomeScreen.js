@@ -17,14 +17,16 @@ const HomeScreen = () => {
       
       <View style={styles.info}>
         <Text variant="titleMedium" style={styles.infoTitle}>
-          🎉 Phase 1 Complete!
+          🎉 Phase 2 Complete!
         </Text>
         <Text variant="bodyMedium" style={styles.infoText}>
-          ✅ User authentication working{`\n`}
-          ✅ Backend API connected{`\n`}
-          ✅ Socket.IO ready{`\n`}
+          ✅ User authentication{`\n`}
+          ✅ Friend management{`\n`}
+          ✅ Real-time chat{`\n`}
+          ✅ Media sharing{`\n`}
+          ✅ Online status tracking{`\n`}
           {`\n`}
-          Next: Friend system & Chat coming soon...
+          Next: Camera & Filters (Phase 3)
         </Text>
       </View>
 
