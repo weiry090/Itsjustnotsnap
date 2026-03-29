@@ -194,8 +194,7 @@ const FriendsListScreen = ({ navigation }) => {
                 mode="contained-tonal"
                 size={20}
                 onPress={() => {
-                  // Will implement in Phase 4
-                  setError('Video calling coming in Phase 4!');
+                  navigation.navigate('OutgoingCall', { friend });
                 }}
               />
             </View>

@@ -19,7 +19,7 @@ A feature-rich Android mobile app with video calling, text chat, media sharing, 
 - ✅ Typing indicators
 - ✅ Message read receipts
 - ✅ Unread message counters
-- ✅ Tab navigation (Friends, Chats, Profile)
+- ✅ Tab navigation (Friends, Chats, Camera, Profile)
 
 ### Phase 3 (✅ Complete)
 - ✅ Camera integration with react-native-vision-camera
@@ -30,9 +30,21 @@ A feature-rich Android mobile app with video calling, text chat, media sharing, 
 - ✅ Filter preview and selection UI
 - ✅ Direct sharing from camera to chat
 
-### Upcoming Phases
-- 📹 **Phase 4**: WebRTC video calling
-- 🎨 **Phase 5**: UI polish & optimization
+### Phase 4 (✅ Complete)
+- ✅ WebRTC peer-to-peer video calling
+- ✅ Incoming/Outgoing call screens
+- ✅ Active call with video streams
+- ✅ Call controls (mute, video toggle, camera flip, end)
+- ✅ Picture-in-picture local video
+- ✅ Call duration timer
+- ✅ Connection status monitoring
+- ✅ Call history logging
+
+### Phase 5 (🔜 Next)
+- 🔜 Final UI/UX polish
+- 🔜 Performance optimization
+- 🔜 Error handling improvements
+- 🔜 App icon and splash screen
 
 ## Tech Stack
 

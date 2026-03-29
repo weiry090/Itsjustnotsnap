@@ -17,18 +17,18 @@ const HomeScreen = () => {
       
       <View style={styles.info}>
         <Text variant="titleMedium" style={styles.infoTitle}>
-          🎉 Phase 3 Complete!
+          🎉 Phase 4 Complete!
         </Text>
         <Text variant="bodyMedium" style={styles.infoText}>
           ✅ User authentication{`\n`}
           ✅ Friend management{`\n`}
           ✅ Real-time chat{`\n`}
           ✅ Media sharing{`\n`}
-          ✅ Camera integration{`\n`}
-          ✅ Basic filters (9 filters){`\n`}
-          ✅ Face filters (4 filters){`\n`}
+          ✅ Camera with filters{`\n`}
+          ✅ WebRTC video calling{`\n`}
+          ✅ Call controls{`\n`}
           {`\n`}
-          Next: Video Calling (Phase 4)
+          Next: Final Polish (Phase 5)
         </Text>
       </View>
 

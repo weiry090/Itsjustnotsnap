@@ -15,6 +15,9 @@ import AddFriendScreen from '../screens/AddFriendScreen';
 import ChatListScreen from '../screens/ChatListScreen';
 import ChatRoomScreen from '../screens/ChatRoomScreen';
 import CameraScreen from '../screens/CameraScreen';
+import IncomingCallScreen from '../screens/IncomingCallScreen';
+import OutgoingCallScreen from '../screens/OutgoingCallScreen';
+import ActiveCallScreen from '../screens/ActiveCallScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -150,7 +153,24 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       {user ? (
-        <MainTabs />
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="MainTabs" component={MainTabs} />
+          <Stack.Screen
+            name="IncomingCall"
+            component={IncomingCallScreen}
+            options={{ presentation: 'fullScreenModal' }}
+          />
+          <Stack.Screen
+            name="OutgoingCall"
+            component={OutgoingCallScreen}
+            options={{ presentation: 'fullScreenModal' }}
+          />
+          <Stack.Screen
+            name="ActiveCall"
+            component={ActiveCallScreen}
+            options={{ presentation: 'fullScreenModal' }}
+          />
+        </Stack.Navigator>
       ) : (
         <Stack.Navigator
           screenOptions={{
