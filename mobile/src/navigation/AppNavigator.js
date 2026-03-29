@@ -18,6 +18,8 @@ import CameraScreen from '../screens/CameraScreen';
 import IncomingCallScreen from '../screens/IncomingCallScreen';
 import OutgoingCallScreen from '../screens/OutgoingCallScreen';
 import ActiveCallScreen from '../screens/ActiveCallScreen';
+import CallHistoryScreen from '../screens/CallHistoryScreen';
+import AboutScreen from '../screens/AboutScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -79,6 +81,36 @@ const ChatStack = () => (
   </Stack.Navigator>
 );
 
+const ProfileStack = () => (
+  <Stack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#1976d2',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}
+  >
+    <Stack.Screen
+      name="Profile"
+      component={HomeScreen}
+      options={{ title: 'Profile' }}
+    />
+    <Stack.Screen
+      name="CallHistory"
+      component={CallHistoryScreen}
+      options={{ title: 'Call History' }}
+    />
+    <Stack.Screen
+      name="About"
+      component={AboutScreen}
+      options={{ title: 'About' }}
+    />
+  </Stack.Navigator>
+);
+
 const MainTabs = () => (
   <Tab.Navigator
     screenOptions={({ route }) => ({
@@ -133,7 +165,7 @@ const MainTabs = () => (
     />
     <Tab.Screen
       name="ProfileTab"
-      component={HomeScreen}
+      component={ProfileStack}
       options={{ title: 'Profile' }}
     />
   </Tab.Navigator>
